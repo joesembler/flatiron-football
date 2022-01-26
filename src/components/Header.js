@@ -7,10 +7,13 @@ function Header (){
    
     return(
         <div className="Header">
-            <img id="flatironFootballLogo" src={logo} alt="flatiron football logo"/>
+            <Link to='/'>
+                <img id="flatironFootballLogo" src={logo} alt="flatiron football logo"/>
+            </Link>
+            
 
             <div className="pageLinks">
-                <Link id="homeButton" to='/'><button id="homeButton">Home</button></Link>
+                <Link id="dataBaseButton" to='/database'><button id="dataBaseButton">Database</button></Link>
                 <Link id="watchListButton" to='/watchlist'><button id="watchListButton">Watchlist</button></Link>
             </div>   
             

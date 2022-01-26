@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
 
-*{
-    /* background-color: darkslateblue; */
-    /* background-color: rgb(0, 0, 0); */
-}
-
 ::-webkit-scrollbar{
     background: transparent;
     width: .25vw;
@@ -20,6 +15,11 @@ body{
     margin-left: 0;
     margin-right: 0;
 }
+
+.Home, .Database{
+    background-color: silver;
+}
+
 .Header{
     position: sticky;
     top: 0;
