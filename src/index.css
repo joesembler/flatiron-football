@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap');
+
+*{
+    /* background-color: darkslateblue; */
+    /* background-color: rgb(0, 0, 0); */
+}
+
+::-webkit-scrollbar{
+    background: transparent;
+    width: .25vw;
+}
+::-webkit-scrollbar-thumb{
+    background: #ffff59;
+}
+
+body{
+    background-color: rgb(148, 218, 255);
+    padding: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+.Header{
+    position: sticky;
+    top: 0;
+    padding: 15px;
+    background-color: whitesmoke;
+    padding-top: 8vh;
+    z-index: 8;
+}
+
+#flatironFootballLogo{
+    position: fixed;
+    top: 0;
+    left: auto;
+    right: auto;
+    width: auto;
+    height: 15vh;
+    padding: 3px;
+} 
+
+#searchBar{
+    position: fixed;
+    z-index:9;
+    top: 8.5vh; 
+    right: 12vw;
+    width: 35vw;
+    height: 5vh;
+    box-sizing: border-box;
+    border: none;
+    /* border-color: whitesmoke; */
+    /* border-radius: 10px; */
+    background-color: black;
+    padding: 5px;
+}
+
+.Search input {
+    text-align: left;
+    color: whitesmoke;
+    font-size: medium;
+    font-family: 'Spartan', sans-serif;
+}
+
+.pageLinks button{
+    position: relative;
+    top: 0vh;
+    left: 65vw;
+    font-family: 'Fugoz One', cursive;
+    font-size: medium;
+    color: #212121;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    background-color: whitesmoke;
+}
+
+.pageLinks button:hover{
+    cursor: pointer;
+    color: royalblue;
+}
+
+.Footer{
+    text-align: center;
+    color: whitesmoke;
+    font-family: 'Fugoz One', cursive;
+    font-size: medium;
+    font-weight: 600;
+    background-color: rgb(148, 218, 255);
+}
+
+.loading{
+    color: whitesmoke;
+}
+
