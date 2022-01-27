@@ -1,16 +1,13 @@
 import React, {useState, useEffect} from "react";
 
-function Search ({coins, onSearch}){
+function Search (props){
     const [querey, quereySetter] = useState("");
     const [results, setResults] = useState([]);
 
     useEffect(() => {
-        const filteredCoins = coins.filter(coin => coin.name.toLowerCase().includes(querey)).map(coin => coin)
-        setResults(filteredCoins);
-        onSearch(results);
+        setResults(props.players.filter(player => player.name.toLowerCase().includes(querey)).map(player => player));
+        props.onSearch(results);
     }, [querey])
-  
-    
 
     return (
         <div className="Search">
@@ -21,9 +18,12 @@ function Search ({coins, onSearch}){
             value={querey}
             onChange={(e) => quereySetter(e.target.value)}
             onSubmit={(e) => {
-                
                 e.preventDefault();
-                onSearch(results);
+                props.onSearch(results);
+            }}
+            onKeyUp={(e) => {
+                e.preventDefault();
+                props.onSearch(results);
             }}
         />
         </div>
