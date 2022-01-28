@@ -37,18 +37,18 @@ function App() {
     function toggleFavorite(event, player){
         console.log(player)
         event.preventDefault();
-        fetch(`http://localhost:9292/players/${player}`, {
+        fetch(`http://localhost:9292/players/${player.id}`, {
             method: 'PATCH',
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({favorite: true})
+            body: JSON.stringify({favorite: !player.favorite})
         })
        setChange(!change)
 
     }
 
-    
+    console.log(displayPlayers)
 
     return (
         <div className="App">
@@ -75,7 +75,7 @@ function App() {
             </Route>
             <Route exact path="/create">
                 <Header />
-                <CreatePlayer/>
+                <CreatePlayer change={change} setChange={setChange}/>
                 <Footer />
             </Route>
         </div>

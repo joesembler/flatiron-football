@@ -3,20 +3,24 @@ import Player from "./Player"
 
 function Database (props){
     const [players, setPlayers] = useState([])
-
-    useEffect(() => {
-        if(props.players.length > 0){
-            setPlayers(props.players)
-        }
-    }, [])
     console.log(props)
 
-    if(players.length > 0 && props.teams.length > 0){
+    useEffect(() => {
+        console.log(props)
+        setPlayers(props.players)
+    }, [props.players])
+    // if(props.players.length > 0){
+    //     setPlayers(props.players)
+    // }
+    console.log(players)
 
-        const playerElements = players.map(player => {
-            return(
-                <Player key={player.id} player={player} team={props.teams[player.team_id]} />
-            )
+    if(players.length > 0 ){
+        console.log(players)
+
+        let playerElements = [];
+        players.forEach(player => {
+            
+            playerElements.push(<Player key={player.id} player={player} team={props.teams[player.team_id]} />)
         });
 
         return(

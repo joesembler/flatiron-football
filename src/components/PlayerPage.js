@@ -29,12 +29,12 @@ function PlayerPage(props){
         return(
             <div className="Player">
                 <h1>{player.name}</h1>
-                <button onClick={(event) => props.toggleFavorite(event, player.id)}>{player.favorite ? "Remove From Favorites" : "Add to Favorites"}</button>
+                <button onClick={(event) => props.toggleFavorite(event, player)}>{player.favorite ? "Remove From Favorites" : "Add to Favorites"}</button>
                 <h3>Position: {player.position}</h3>
                 
                 
                 <img src={player.img} alt={player.name} Image></img>
-                <h2>{team.name}</h2>
+                <h2>{team ? team.name : "team n/a"}</h2>
                 <h2>{player.stats[0].lowest_score}</h2>
 
 
