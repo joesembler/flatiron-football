@@ -6,11 +6,14 @@ import Footer from "./Footer"
 import Database from "./Database"
 import Search from "./Search"
 import PlayerPage from "./PlayerPage"
+import Watchlist from "./Watchlist"
+import CreatePlayer from "./CreatePlayer"
 
 function App() {
     const [players, setPlayers] = useState([]);
     const [displayPlayers, setDisplayPlayers] = useState([]);
     const [teams, setTeams] = useState([]);
+    const [change, setChange] = useState(false);
 
     useEffect(() => {
         fetch(`http://localhost:9292/players`)
@@ -25,11 +28,27 @@ function App() {
         .then(r => r.json())
         .then(setTeams)
 
-    }, [])
+    }, [change])
 
     function handleSearch(results){
         setDisplayPlayers(results)
     }
+
+    function toggleFavorite(event, player){
+        console.log(player)
+        event.preventDefault();
+        fetch(`http://localhost:9292/players/${player}`, {
+            method: 'PATCH',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({favorite: true})
+        })
+       setChange(!change)
+
+    }
+
+    
 
     return (
         <div className="App">
@@ -46,7 +65,17 @@ function App() {
             </Route>
             <Route exact path="/players/:id">
                 <Header />
-                <PlayerPage players={players} teams={teams}/>
+                <PlayerPage players={players} teams={teams} toggleFavorite={toggleFavorite}/>
+                <Footer />
+            </Route>
+            <Route exact path="/watchlist">
+                <Header />
+                <Watchlist players={players} teams={teams}/>
+                <Footer />
+            </Route>
+            <Route exact path="/create">
+                <Header />
+                <CreatePlayer/>
                 <Footer />
             </Route>
         </div>

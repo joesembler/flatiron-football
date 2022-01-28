@@ -15,6 +15,7 @@ function Header (){
             <div className="pageLinks">
                 <Link id="dataBaseButton" to='/players'><button id="dataBaseButton">Database</button></Link>
                 <Link id="watchListButton" to='/watchlist'><button id="watchListButton">Watchlist</button></Link>
+                <Link id="createPlayerButton" to='/create'><button id="watchListButton">Create</button></Link>
             </div>   
             
         </div>

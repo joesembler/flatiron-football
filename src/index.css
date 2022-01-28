@@ -115,3 +115,28 @@ body{
     padding: 10px;
     display: inline-block;
 }
+
+
+
+Home {
+    margin-left: 12.5%;
+    margin-right: 12.5%;
+    margin-top: 10vh;
+    height: 60vh;
+    width: 75vw;
+    background-color: #E5E4E2;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    box-shadow: 0px 2px 2px black;
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Home p, h3 {
+    width: 75%;
+    margin-left: 12.5%;
+    margin-right: 12.5%
+}
+
+.Home h1{
+    text-align: center;
+}

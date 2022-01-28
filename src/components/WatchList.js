@@ -1,40 +1,35 @@
-import React, {useState, useEffect} from 'react';
-import CryptoList from './CryptoList';
+import React, {useState, useEffect} from "react";
+import Database from "./Database";
 
-function WatchList(props) {
-    const [watchedCoins, setWatchedCoins] = useState([]);
-    const [updatedWatchList, setUpdatedWatchList] = useState([]);
+function Watchlist(props){
+    const [displayPlayers, setDisplayPlayers] = useState([]); 
+
+    console.log(props.players)
     
     useEffect(() => {
-        fetch("http://localhost:3000/watchList")
-        .then(r=>r.json())
-        .then(data=> {
-           setWatchedCoins(data) 
+        const variable = props.players.filter(player => {
+            return player.favorite === true
         })
-    }, [])
-    
-    useEffect(()=>{
-        let newArray = [];
-        fetch(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${props.currency}&order=market_cap_desc&per_page=250&page=1&sparkline=falsekets`)
-            .then(r=>r.json())
-            .then(data=> {
-                data.forEach(coin=>{
-                    watchedCoins.forEach((watchedCoin) => { 
-                        if(coin.id === watchedCoin.id){
-                            newArray.push(coin);            
-                        }
-                    })
-                })
-                setUpdatedWatchList(newArray)
-            }) 
-    }, [watchedCoins.length > 0])
-
-
-    return(
-        <div className="WatchList">
-            {updatedWatchList.length > 0 ? <CryptoList coins={updatedWatchList} currency={props.currency} /> : <h2>Loading...</h2>}
+        console.log(variable)
+        setDisplayPlayers(variable);
+    }, []);
+        
+    if(displayPlayers.length > 0){
+        
+        return (
+            <div className="Watchlist">
+                <Database players={displayPlayers} teams={props.teams} />
+            </div>
+        )
+    }
+    else {
+       return(
+        <div className="Home">
+            <p> No Favorite players yet </p>
         </div>
-    )
+        ) 
+    }
+    
 }
 
-export default WatchList;
+export default Watchlist;
